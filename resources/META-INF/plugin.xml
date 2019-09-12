@@ -1,0 +1,31 @@
+<idea-plugin>
+  <id>com.your.company.unique.plugin.id</id>
+  <name>Copy Paster Task</name>
+  <version>1.0</version>
+  <vendor email="al.s.fedotov@yandex.ru" >HSE</vendor>
+
+  <description><![CDATA[
+      Plugin that shows AST and do not likes ctrl v
+    ]]></description>
+
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <copyPastePreProcessor implementation="com.hse.plugin.PasteHandler"/>
+  </extensions>
+
+  <actions>
+    <action id="CopyPasterTask.ShowAST" class="com.hse.plugin.ShowAstAction" text="AST_shower"
+            description="This action shows AST of the selected part of the code">
+      <add-to-group group-id="ToolbarRunGroup" anchor="first"/>
+    </action>
+  </actions>
+</idea-plugin>
